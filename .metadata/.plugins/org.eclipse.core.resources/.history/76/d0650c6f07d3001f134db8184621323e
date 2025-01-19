@@ -1,0 +1,10 @@
+package in.ashokit.service;
+
+
+public class ExcelReport implements IService{
+
+	@Override
+	public void generateReport() {
+		System.out.println("Excel Report generated...");
+	}
+}

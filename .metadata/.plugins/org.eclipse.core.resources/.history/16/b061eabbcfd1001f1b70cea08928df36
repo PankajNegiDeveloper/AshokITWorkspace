@@ -1,0 +1,12 @@
+package in.ashokit;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Car car1 = new Car(new PetrolEng());
+		car1.drive();
+		Car car2 = new Car(new DieselEng());
+		car2.drive();
+	}
+
+}

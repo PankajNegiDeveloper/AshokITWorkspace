@@ -1,0 +1,13 @@
+package in.ashokit.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class PdfReport implements IService {
+
+	@Override
+	public void generateReport() {
+		System.out.println("Pdf report generated");
+	}
+
+}

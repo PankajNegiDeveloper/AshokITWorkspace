@@ -1,0 +1,14 @@
+package in.ashok.beans;
+
+public class PetrolEngine implements IEngine {
+
+	public PetrolEngine() {
+		System.out.println("CarEngine :: constructor");
+	}
+
+	@Override
+	public int start() {
+		System.out.println("Petrol Engine started");
+		return 1;
+	}
+}

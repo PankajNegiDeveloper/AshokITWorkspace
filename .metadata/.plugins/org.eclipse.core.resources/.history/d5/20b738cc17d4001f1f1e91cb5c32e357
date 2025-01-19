@@ -1,0 +1,5 @@
+package in.aop.config;
+
+public class AppConfig {
+
+}

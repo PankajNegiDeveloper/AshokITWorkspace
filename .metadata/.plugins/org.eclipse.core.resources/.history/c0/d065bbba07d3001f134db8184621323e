@@ -1,0 +1,14 @@
+package in.ashokit.service;
+
+import org.springframework.stereotype.Service;
+
+import in.ashokit.reports.IReport;
+
+@Service
+public class Report {
+	private IReport report;
+	
+	public void generate() {
+		report.generateReport();
+	}
+}

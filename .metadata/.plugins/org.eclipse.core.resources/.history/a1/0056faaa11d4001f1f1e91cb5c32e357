@@ -1,0 +1,25 @@
+package in.aop.entity;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Human {
+	
+	@After("pointCuts()")
+	public void wakeUp() {
+		System.out.println("Good morning");
+	}
+	
+	@Before("pointCuts()")
+	public void sleep() {
+		System.out.println("Good night");
+	}
+	
+	@Pointcut("execution(public * study(..))")
+	public void pointCuts() {
+		System.out.println("Good morning");
+	}
+}

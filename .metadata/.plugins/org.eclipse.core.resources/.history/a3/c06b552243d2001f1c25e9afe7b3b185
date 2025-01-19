@@ -1,0 +1,6 @@
+package in.ashok.beans;
+
+public class IEngine {
+
+public void start();
+}

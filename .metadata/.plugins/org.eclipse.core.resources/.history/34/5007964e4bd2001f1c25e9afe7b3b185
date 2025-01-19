@@ -1,0 +1,10 @@
+package in.ashok.beans;
+
+public class Car {
+
+	public Car(IEngine eng) {
+		System.out.println("Car :: constructor");
+		this.eng = eng;
+	}
+
+}

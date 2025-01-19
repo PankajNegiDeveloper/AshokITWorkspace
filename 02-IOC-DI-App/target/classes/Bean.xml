@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Define PetrolEngine bean -->
+	<bean id="petrolEng" class="in.ashok.beans.PetrolEngine" />
+	<bean id="dieselEng" class="in.ashok.beans.DieselEngine"/>
+	<!-- if we use lazy-init="true" for Diesel Engine it will  not execute -->
+
+	<!-- Define Car bean -->
+	<bean id="car" class="in.ashok.beans.Car">
+		<!--telling IOC to call setter method, by using property tag-->
+		<!--<property name="eng" ref="dieselEng" />-->
+		
+		
+		<!--telling IOC to call constructor method, by using property tag-->
+		<constructor-arg name="eng" ref="petrolEng"/>
+	</bean>
+</beans>

@@ -1,0 +1,13 @@
+package in.ashokit.beans;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+	public static void main(String[] args) {
+		// creating IOC container
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		Motor motor = context.getBean(Motor.class);
+		motor.doWork();
+	}
+}

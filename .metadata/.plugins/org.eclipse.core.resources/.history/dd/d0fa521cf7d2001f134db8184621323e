@@ -1,0 +1,5 @@
+package in.ashokit.annotation;
+
+public class Motor {
+
+}

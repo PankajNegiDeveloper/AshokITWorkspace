@@ -1,0 +1,9 @@
+package in.ashokit;
+
+public class Car {
+	
+	private IEngine eng;
+	public void drive() {
+		int start = eng.start();
+	}
+}

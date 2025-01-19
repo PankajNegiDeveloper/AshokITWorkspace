@@ -1,0 +1,25 @@
+package in.aop.entity;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@EnableAspectJAutoProxy
+@Component
+public class Human {
+
+	@Before("execution(public * studySomething(..))")
+	public void wakeUp() {
+		System.out.println("Good Morning...");
+	}
+
+	public void sleep() {
+		System.out.println("Good Night...");
+	}
+
+	public void myPointCuts() {
+	}
+}

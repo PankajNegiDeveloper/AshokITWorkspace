@@ -1,0 +1,7 @@
+package in.aop.prog;
+
+public class Human {
+	public void sleep() {
+		System.out.println("Good night");
+	}
+}

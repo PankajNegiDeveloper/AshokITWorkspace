@@ -1,0 +1,13 @@
+package in.ashokit;
+
+public class Car{
+	public void drive() {
+         //start the engine
+		Engine eng = new Engine();
+		int start = eng.start();
+		if(start>=1){
+			System.out.println("Car is started");
+		}
+		// then drive
+	}
+}

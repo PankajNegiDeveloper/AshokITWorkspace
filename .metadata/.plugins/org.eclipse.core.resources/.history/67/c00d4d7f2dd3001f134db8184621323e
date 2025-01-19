@@ -1,0 +1,14 @@
+package in.aop.prog;
+
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Component;
+
+@Component
+@EnableAspectJAutoProxy
+public class Human {
+
+	
+	public void wakeUp() {
+		System.out.println("Good morning");
+	}
+}

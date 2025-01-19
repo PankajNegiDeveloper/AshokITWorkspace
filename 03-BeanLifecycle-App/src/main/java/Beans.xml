@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Bean life cycle using xml approach -->
+	<bean id="motor" class="in.ashokit.beans.Motor" 
+	    init-method="start"
+		destroy-method="stop" />
+
+	<!-- Bean lifecycle using programmatic approach -->
+	<!--<bean id="motor" class="in.ashokit.beans.Motor1" />-->
+
+	<!-- Bean lifecycle using annotation approach -->
+	<!--<bean id="motor2" class="in.ashokit.beans.Motor2" />-->
+</beans>

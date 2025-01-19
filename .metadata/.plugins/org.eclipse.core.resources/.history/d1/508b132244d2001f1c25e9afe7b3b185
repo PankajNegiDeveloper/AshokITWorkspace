@@ -1,0 +1,14 @@
+package in.ashok.beans;
+
+public class CarEngine implements IEngine {
+
+	public CarEngine() {
+		System.out.println("CarEngine :: constructor");
+	}
+
+	@Override
+	public void start() {
+		System.out.println("");
+	}
+
+}

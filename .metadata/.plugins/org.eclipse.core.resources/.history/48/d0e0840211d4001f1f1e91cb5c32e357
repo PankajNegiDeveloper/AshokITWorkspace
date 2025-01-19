@@ -1,0 +1,11 @@
+package in.aop.entity;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Human {
+	
+	public void wakeUp() {
+		System.out.println("Good morning");
+	}
+}

@@ -1,0 +1,9 @@
+package in.ashok.beans;
+
+public class Car {
+	
+	public Car() {
+		System.out.println("Car::constructor");
+	}
+
+}

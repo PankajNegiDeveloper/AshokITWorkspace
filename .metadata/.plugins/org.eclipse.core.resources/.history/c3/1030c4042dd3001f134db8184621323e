@@ -1,0 +1,15 @@
+package in.aop.prog;
+
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Component;
+import org.springframework.test.context.transaction.BeforeTransaction;
+
+@Component
+@EnableAspectJAutoProxy
+public class Human {
+
+	@Before("execution(public void study())")
+	public void wakeUp() {
+		System.out.println("Good morning");
+	}
+}

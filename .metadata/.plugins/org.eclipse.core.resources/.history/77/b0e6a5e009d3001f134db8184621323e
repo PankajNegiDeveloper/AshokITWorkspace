@@ -1,0 +1,18 @@
+package in.ashokit.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import in.ashokit.reports.IReport;
+
+@Service
+public class Report {
+	
+	//by doing this, it will become field injection
+	@Autowired
+	private IReport report;
+
+	public void generate() {
+		report.generateReport();
+	}
+}

@@ -1,0 +1,17 @@
+package in.aop.entity;
+
+import org.springframework.stereotype.Component;
+
+import in.aop.exception.MyException;
+
+@Component
+public class Student {
+	public int studySomething(int a, int b) {
+		System.out.println("I am studying something");
+		return 100;
+	}
+	
+	public int doOperation(int x, int y) {
+		throw new MyException("This is my custom exception!!");
+	}
+}

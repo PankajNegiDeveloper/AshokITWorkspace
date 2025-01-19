@@ -1,0 +1,13 @@
+package in.ashokit;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Car car1 = new Car(new PetrolEng()); //constructor injection
+		
+		Car.setEng()
+		
+		car1.drive();
+	}
+
+}
