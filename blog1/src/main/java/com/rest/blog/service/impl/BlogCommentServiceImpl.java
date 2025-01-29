@@ -106,7 +106,6 @@ public class BlogCommentServiceImpl implements BlogCommentService {
 		BlogPost blogPost = blogPostRepo.findById(postid)
 				.orElseThrow(() -> new NoResourceFoundException("BlogPost", "post_ID", postid));
 
-		// BlogPost blogPost1=blogPost.get();
 		// Ensures the comment exists
 		BlogComment comment = blogCommentRepo.findById(commid)
 				.orElseThrow(() -> new NoResourceFoundException("BlogComment", "ID", commid));
