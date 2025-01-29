@@ -48,7 +48,7 @@ public class BlogPostController {
 	public ResponseEntity<BlogPostDto> findAllBlogPosts(
 			@RequestParam(value = "pageNo", defaultValue = "0", required = false) Integer pageNo,
 			@RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,
-			@RequestParam(value = "sortBy", defaultValue = "blogid", required = false) String sortBy,
+			@RequestParam(value = "sortBy", defaultValue = "postid", required = false) String sortBy,
 			@RequestParam(value = "sortDir", defaultValue = "ASC", required = false) String sortDir) {
 
 		Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) 
@@ -61,8 +61,8 @@ public class BlogPostController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<BlogPostDto> updateBlogPost(@RequestBody BlogPostDto blogPost) {
-		BlogPostDto updateBlog = blogPostService.updateBlogPost(blogPost);
+	public ResponseEntity<BlogPostDto> updateBlogPost(@RequestBody BlogPostDto blogPostDto) {
+		BlogPostDto updateBlog = blogPostService.updateBlogPost(blogPostDto);
 		return new ResponseEntity(updateBlog, HttpStatus.OK);
 	}
 

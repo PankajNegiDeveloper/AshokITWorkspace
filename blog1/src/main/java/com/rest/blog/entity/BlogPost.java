@@ -1,5 +1,6 @@
 package com.rest.blog.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -19,11 +20,11 @@ public class BlogPost {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer blogid;
+	private Integer postid;
 	private String title;
 	private String description;
 	private String content;
 
 	@OneToMany(mappedBy = "blogPost", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<BlogComment> comments;
+	private List<BlogComment> comments = new ArrayList<>();
 }

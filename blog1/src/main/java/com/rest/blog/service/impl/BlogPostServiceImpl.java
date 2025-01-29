@@ -1,9 +1,10 @@
 package com.rest.blog.service.impl;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,31 +20,25 @@ import com.rest.blog.service.BlogPostService;
 public class BlogPostServiceImpl implements BlogPostService {
 
 	private BlogPostRepo blogPostRepo;
+	private ModelMapper mapper;
 
 	@Autowired
-	public BlogPostServiceImpl(BlogPostRepo blogPostRepo) {
+	public BlogPostServiceImpl(BlogPostRepo blogPostRepo, ModelMapper mapper) {
 		super();
 		this.blogPostRepo = blogPostRepo;
+		this.mapper = mapper;
 	}
 
 	// **********************************************************
 	// changing DtoToEntity
 	private BlogPost mapDtoToEntity(BlogPostDto blogPostDto) {
-		BlogPost blogPost = new BlogPost();
-		blogPost.setBlogid(blogPostDto.getId());
-		blogPost.setTitle(blogPostDto.getTitle());
-		blogPost.setDescription(blogPostDto.getDescription());
-		blogPost.setContent(blogPostDto.getContent());
+		BlogPost blogPost = mapper.map(blogPostDto, BlogPost.class);
 		return blogPost;
 	}
 
 	// changing EntityToDto
 	private BlogPostDto mapEntityToDto(BlogPost blogPost) {
-		BlogPostDto blogPostDto = new BlogPostDto();
-		blogPostDto.setId(blogPost.getBlogid());
-		blogPostDto.setTitle(blogPost.getTitle());
-		blogPostDto.setDescription(blogPost.getDescription());
-		blogPostDto.setContent(blogPost.getContent());
+		BlogPostDto blogPostDto = mapper.map(blogPost, BlogPostDto.class);
 		return blogPostDto;
 	}
 	// ************************************************************
@@ -65,8 +60,8 @@ public class BlogPostServiceImpl implements BlogPostService {
 
 	// finding all blogs
 	@Override
-	public List<BlogPostDto> findAllBlogPosts(PageRequest page) {
-		Page<BlogPost> findAll=blogPostRepo.findAll(page);
+	public List<BlogPostDto> findAllBlogPosts(Pageable page) {
+		Page<BlogPost> findAll = blogPostRepo.findAll(page);
 //		List<BlogPost> blogPosts = blogPostRepo.findAll();
 		List<BlogPost> content = findAll.getContent();
 		return content.stream().map(blogPost -> mapEntityToDto(blogPost)).toList();
@@ -75,9 +70,12 @@ public class BlogPostServiceImpl implements BlogPostService {
 	// updating blog
 	@Override
 	public BlogPostDto updateBlogPost(BlogPostDto blogPostDto) {
-		Optional<BlogPost> blogPostId = blogPostRepo.findById(blogPostDto.getId());
+		// validating the id is not null
+
+		Optional<BlogPost> blogPostId = blogPostRepo.findById(blogPostDto.getPostid());
+		// check if id exists or not if not then throw error
 		BlogPost blogPost = blogPostId
-				.orElseThrow(() -> new NoResourceFoundException("BlogPost", "ID", blogPostDto.getId()));
+				.orElseThrow(() -> new NoResourceFoundException("BlogPost", "ID", blogPostDto.getPostid()));
 		BlogPost updateBlogPost = blogPostRepo.save(mapDtoToEntity(blogPostDto));
 		return mapEntityToDto(updateBlogPost);
 	}

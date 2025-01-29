@@ -1,8 +1,7 @@
 package com.rest.blog.service;
 
+import org.springframework.data.domain.Pageable;
 import java.util.List;
-
-import org.springframework.data.domain.PageRequest;
 
 import com.rest.blog.Dto.BlogPostDto;
 
@@ -12,7 +11,7 @@ public interface BlogPostService {
 
 	BlogPostDto findBlogPostById(Integer postid);
 
-	List<BlogPostDto> findAllBlogPosts(PageRequest page); 
+	List<BlogPostDto> findAllBlogPosts(Pageable page); 
 	
 	BlogPostDto updateBlogPost(BlogPostDto blogPostDto);
 	
